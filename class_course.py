@@ -19,19 +19,19 @@ class Course:
         five_min_num    = 288 # number of five-minute block every day
         n = len(class_weekday)
         for i in range(n):
-            if class_weekday == "M":
+            if class_weekday[i] == "M":
                 class_start_lst.append(start_time)
                 class_end_lst.append(end_time)
-            elif class_weekday == "T":
+            elif class_weekday[i] == "T":
                 class_start_lst.append(start_time + five_min_num)
                 class_end_lst.append(end_time + five_min_num)
-            elif class_weekday == "W":
+            elif class_weekday[i] == "W":
                 class_start_lst.append(start_time + 2 * five_min_num)
                 class_end_lst.append(end_time + 2 * five_min_num)
-            elif class_weekday == "H":
+            elif class_weekday[i] == "H":
                 class_start_lst.append(start_time + 3 * five_min_num)
                 class_end_lst.append(end_time + 3 * five_min_num)
-            elif class_weekday == "F":
+            elif class_weekday[i] == "F":
                 class_start_lst.append(start_time + 4 * five_min_num )
                 class_end_lst.append(end_time + 4 * five_min_num)
         # Now, the self part continues.
