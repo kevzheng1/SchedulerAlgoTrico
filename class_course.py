@@ -1,11 +1,14 @@
+from time_parser import *
+
 class Course:
-    # Input: name (str), weekday (str), start_time (int)
-    # end_time (int), location (str)
-    def __init__(self, name, weekday, start_time, end_time, location):
+    # Input: name (str), weekday (str), start to end time (str) e.g. "11:20AM-12:35PM"
+    # location (str)
+    def __init__(self, name, weekday, duration, location):
         self.name       = name
         self.weekday    = weekday
-        self.start_time = start_time
-        self.end_time   = end_time
+        class_period = time_parser(duration)
+        self.start_time = class_period[0]
+        self.end_time   = class_period[1]
         self.location   = location
         # Start converting these weekdays str into list of start time and end time
         # Let's say we have MWF as our weekday input
