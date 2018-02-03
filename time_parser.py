@@ -2,9 +2,9 @@ def time_parser(time_str):
     # Receive str that indicates time (e.g. "11:20AM-12:35PM")
     # Objective: Convert the string to integer unit >> "11:20AM-12:35PM" will
     # become [680,755]
-    n = len(time_str)
     period = time_str.split("-")
-    for i in range(len(period)):
+    n = len(period)
+    for i in range(n):
         period[i] = period[i].split(":")
         # Clean the hour part
         period[i][0] = int(period[i][0])*60
@@ -30,4 +30,9 @@ def time_parser(time_str):
             period[i] = (total_min - 720) / 5
     return period
 
+def main():
+    a = time_parser("11:20AM-12:35PM")
+    print(a)
+
+main()
 # This function is tested, and it works.
