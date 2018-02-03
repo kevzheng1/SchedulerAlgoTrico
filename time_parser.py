@@ -25,9 +25,9 @@ def time_parser(time_str):
         period[i][1] = minute_int
         total_min = period[i][0] + period[i][1]
         if total_min <= 1440:
-            period[i] = total_min
+            period[i] = total_min/5
         else:
-            period[i] = total_min - 720
+            period[i] = (total_min - 720) / 5
     return period
 
 # This function is tested, and it works.
