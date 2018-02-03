@@ -17,7 +17,7 @@ class Calendar:
 # adds a course to Calendar based on start time and end end_time
 # where both are measured in blocks of 5 minutes
     def addCourse(self, starttime, endtime):
-        for i in range(starttime, endtime):
+        for i in range(int(starttime), int(endtime)):
             if self.blocks[i] == True:
                 self.valid = False
                 return False
