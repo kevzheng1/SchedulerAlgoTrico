@@ -9,9 +9,6 @@ class Course:
         self.location   = location
         # Start converting these weekdays str into list of start time and end time
         # Let's say we have MWF as our weekday input
-        weekday_input "MWF"
-
-        self.total_time = 0 # will be fixed later
 
     def getName(self):
         return self.name

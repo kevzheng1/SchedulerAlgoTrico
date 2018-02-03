@@ -31,6 +31,3 @@ def time_parser(time_str):
     return period
 
 # This function is tested, and it works.
-
-
-main()

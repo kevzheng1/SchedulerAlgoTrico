@@ -1,5 +1,6 @@
 from calendarclass import *
 from class_course import *
+from time_parser import *
 
 Bob = Calendar()
 print(Bob.returnCal("blocks"))
