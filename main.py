@@ -13,3 +13,4 @@ for i in range(totalCourses):
         print(secondTestCal.returnCal("blocks"))
     else:
         print("Conflict Detected!")
+        break
