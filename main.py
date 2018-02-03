@@ -15,6 +15,7 @@ courses = []
 for i in range(8):
     randomNum = randint(0, 20)
     randNums.append(randomNum)
+print(randNums)
 #for each course in index dictated by RNG
 #add the course to courses list
 for rand in randNums:
