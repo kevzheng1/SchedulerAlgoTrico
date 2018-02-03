@@ -13,7 +13,7 @@ randNums = []
 courses = []
 #add 6 random numbers to randNums list
 for i in range(8):
-    randomNum = randint(0, 50)
+    randomNum = randint(0, 20)
     randNums.append(randomNum)
 #for each course in index dictated by RNG
 #add the course to courses list
@@ -21,9 +21,9 @@ for rand in randNums:
     duration = Spring2018[rand]['Time And Days']
     name = Spring2018[rand]['Course Title']
     location = Spring2018[rand]['Room Location']
-    course = Course(name, duration, location)
+    weekday = duration.split(" ")[0]
+    course = Course(name, weekday, duration, location)
     courses.append(course)
-
 print(courses);
 
 
@@ -39,3 +39,4 @@ for i in range(totalCourses):
     else:
         print("Conflict Detected!")
         break
+print (courseRequests[0].getStart_time())
