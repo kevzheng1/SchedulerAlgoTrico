@@ -20,7 +20,7 @@ def time_parser(time_str):
                 minute_str += period[i][1][j]
         minute_int = int(minute_str)
         # Clear the AM, PM stuff
-        if period[i][1][2] == "P":
+        if period[i][1][2] == "p":
             minute_int += 720
         period[i][1] = minute_int
         total_min = period[i][0] + period[i][1]

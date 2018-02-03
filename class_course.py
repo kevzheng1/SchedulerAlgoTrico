@@ -4,14 +4,15 @@ from day_parser import *
 class Course:
     # Input: name (str), weekday (str), start to end time (str) e.g. "11:20AM-12:35PM"
     # location (str)
-    def __init__(self, name, weekday, duration, location):
+    def __init__(self, name, time, location):
         self.name       = name
-        self.weekday    = weekday
-        self.duration   = duration
+        time_lst        = time.split(" ")
+        self.weekday    = time_lst[0]
+        self.duration   = time_lst[1]
         self.location   = location
         # This part fixes the function.
-        class_weekday   = weekday_parser(weekday)
-        class_duration  = time_parser(duration)
+        class_weekday   = weekday_parser(self.weekday)
+        class_duration  = time_parser(self.duration)
         start_time      = class_duration[0]
         end_time        = class_duration[1]
         class_start_lst = []
@@ -62,3 +63,10 @@ class Course:
         result = "Course name: %s" %(self.name) + "\n" + self.weekday + "\n"
         result += str(self.duration) + "\n" + self.location + "\n"
         return result
+
+def main():
+    weekday_and_duration = "MWF 11:30AM-12:20PM"
+    time_lst = weekday_and_duration.split(" ")
+    print(time_lst)
+
+main()
