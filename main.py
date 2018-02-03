@@ -2,10 +2,30 @@ from calendarclass import *
 from class_course import *
 from time_parser import *
 from day_parser import *
+from random import randint
 import json
 
-Spring2018 = json.load(open("Spring_2018.json"))
-print(Spring2018[0])
+#open the json file and convert to python data type
+file = open("Spring_2018.json", 'r')
+Spring2018 = json.load(file)
+#initiate lists for random number and courses
+randNums = []
+courses = []
+#add 6 random numbers to randNums list
+for i in range(8):
+    randomNum = randint(0, 50)
+    randNums.append(randomNum)
+#for each course in index dictated by RNG
+#add the course to courses list
+for rand in randNums:
+    duration = Spring2018[rand]['Time And Days']
+    name = Spring2018[rand]['Course Title']
+    location = Spring2018[rand]['Room Location']
+    course = Course(name, duration, location)
+    courses.append(course)
+
+print(courses);
+
 
 courseRequests = []
 secondTestCal = Calendar()
