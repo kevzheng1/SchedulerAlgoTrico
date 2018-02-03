@@ -3,41 +3,47 @@ from class_course import *
 from time_parser import *
 from day_parser import *
 from random import randint
+from combinatorics import *
 import json
 
 #open the json file and convert to python data type
 file = open("Spring_2018.json", 'r')
 Spring2018 = json.load(file)
-#initiate lists for random number and courses
-randNums = []
+
+#store courses
 courses = []
-#add 6 random numbers to randNums list
+blacklist = ["Independent Study", "Directed Reading", "Honors Thesis", "Thesis",
+            "Drawing II: Life Drawing"]
+
+#get 8 random courses from the json
 for i in range(8):
-    randomNum = randint(0, 20)
-    randNums.append(randomNum)
-print(randNums)
-#for each course in index dictated by RNG
-#add the course to courses list
-for rand in randNums:
-    duration = Spring2018[rand]['Time And Days']
+    rand = randint(0, 30)
     name = Spring2018[rand]['Course Title']
-    location = Spring2018[rand]['Room Location']
-    weekday = duration.split(" ")[0]
-    course = Course(name, weekday, duration, location)
-    courses.append(course)
-print(courses);
+    #Independent Study classes have no day and time specified so don't retrive
+    #them
+    if name in blacklist:
+        i -= 2
+    else:
+        duration = Spring2018[rand]['Time And Days']
+        location = Spring2018[rand]['Room Location']
+        course = Course(name, duration, location)
+        courses.append(course)
 
 
-courseRequests = []
+courseRequests = courses
+combos = course_comb(courseRequests)
+for i in range(len(combos)):
+    if len(combos[i]) == expected_combination(len(courseRequests), 4):
+        print(combos[i])
+'''
 secondTestCal = Calendar()
 print ("How many courses do you want to add?")
-totalCourses = int(input())
+totalCourses = 8
 for i in range(totalCourses):
-    print ("Time for this course: ex. MWF 11:20am-12:35pm")
-    courseRequests.append(Course("Test", input(), "Swarthmore"))
+    print ("Time for this course: and also day ex. 11:20AM-12:35PM")
     if secondTestCal.addCourse(courseRequests[i].getStart_time(), courseRequests[i].getEnd_time()):
         print(secondTestCal.returnCal("blocks"))
     else:
         print("Conflict Detected!")
         break
-print (courseRequests[0].getStart_time())
+'''
