@@ -2,10 +2,7 @@ from calendarclass import *
 from class_course import *
 from time_parser import *
 
-Bob = Calendar()
-print(Bob.returnCal("blocks"))
-for i in range(2):
-    print("TEST: TYPE A STARTTIME AND ENDTIME")
-    if Bob.addCourse(int(input()), int(input())) == False:
-        print("Conflict Detected")
-    print(Bob.returnCal("blocks"))
+testCal = Calendar()
+testCourse = Course("Test", "M", 600, 1000, "Swarthmore")
+testCal.addCourse(testCourse.getStart_time(), testCourse.getEnd_time())
+print(testCal.returnCal("blocks"))
