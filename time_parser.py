@@ -31,15 +31,6 @@ def time_parser(time_str):
     return period
 
 # This function is tested, and it works.
-def main():
-    a = time_parser("11:20AM-12:35PM")
-    print(a)
-    """
-    time_str_clean = ""
-    for i in range(n):
-        if time_str[i].isdigit() == True:
-            time_str_clean += time_str[i]
-        elif
-    """
+
 
 main()
