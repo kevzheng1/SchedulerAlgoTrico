@@ -5,6 +5,10 @@ def course_comb(course_lst):
     combs = []
     for i in range(1,len(course_lst)+1):
         els = [list(x) for x in itertools.combinations(course_lst, i)]
+        for j in els:
+            for k in j:
+                print(str(k))
+        print("-----------------------------------------------------------")
         combs.append(els)
     return combs
 

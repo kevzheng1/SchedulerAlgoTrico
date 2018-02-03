@@ -34,7 +34,8 @@ courseRequests = courses
 combos = course_comb(courseRequests)
 for i in range(len(combos)):
     if len(combos[i]) == expected_combination(len(courseRequests), 4):
-        print(combos[i])
+        print("")
+
 '''
 secondTestCal = Calendar()
 print ("How many courses do you want to add?")

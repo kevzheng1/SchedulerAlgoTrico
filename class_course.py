@@ -61,7 +61,7 @@ class Course:
 
     def __str__(self):
         result = "Course name: %s" %(self.name) + "\n" + self.weekday + "\n"
-        result += str(self.duration) + "\n" + self.location + "\n"
+        result += str(self.duration) + "\n" + self.location + "\n\n"
         return result
 
 def main():
