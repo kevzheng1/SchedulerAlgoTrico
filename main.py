@@ -5,7 +5,7 @@ from day_parser import *
 import json
 
 Spring2018 = json.load(open("Spring_2018.json"))
-print(Spring2018[0])
+print(Spring2018[0].keys)
 
 courseRequests = []
 secondTestCal = Calendar()
@@ -19,3 +19,4 @@ for i in range(totalCourses):
     else:
         print("Conflict Detected!")
         break
+print (courseRequests[0].getStart_time())

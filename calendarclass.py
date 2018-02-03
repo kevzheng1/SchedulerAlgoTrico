@@ -17,12 +17,13 @@ class Calendar:
 # adds a course to Calendar based on start time and end end_time
 # where both are measured in blocks of 5 minutes
     def addCourse(self, starttime, endtime):
-        for i in range(int(starttime), int(endtime)):
-            if self.blocks[i] == True:
-                self.valid = False
-                return False
-            else:
-                self.blocks[i] = True
+        for i in range(len(starttime)):
+            for j in range(int(starttime[i]), int(endtime[i])):
+                if self.blocks[j] == True:
+                    self.valid = False
+                    return False
+                else:
+                    self.blocks[j] = True
         return True
 
 # empties a stretch of time on the calendar
@@ -30,12 +31,3 @@ class Calendar:
     def removeCourse(self, starttime, endtime):
         for i in range(starttime, endtime):
             self.blocks[i] = False
-"""
-Bob = Calendar()
-print(Bob.returnCal("blocks"))
-for i in range(2):
-    print("TEST: TYPE A STARTTIME AND ENDTIME")
-    if Bob.addCourse(int(input()), int(input())) == False:
-        print("Conflict Detected")
-    print(Bob.returnCal("blocks"))
-"""
