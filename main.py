@@ -33,8 +33,8 @@ secondTestCal = Calendar()
 print ("How many courses do you want to add?")
 totalCourses = int(input())
 for i in range(totalCourses):
-    print ("Time for this course: and also day ex. 11:20AM-12:35PM")
-    courseRequests.append(Course("Test", input(), input(), "Swarthmore"))
+    print ("Time for this course: ex. MWF 11:20AM-12:35PM")
+    courseRequests.append(Course("Test", input(), "Swarthmore"))
     if secondTestCal.addCourse(courseRequests[i].getStart_time(), courseRequests[i].getEnd_time()):
         print(secondTestCal.returnCal("blocks"))
     else:
